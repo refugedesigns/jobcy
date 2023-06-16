@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, MouseEvent } from "react";
 import { IoLocation, IoLogoWhatsapp } from "react-icons/io5";
 import { RiMessengerLine } from "react-icons/ri";
 import { AiOutlineInstagram } from "react-icons/ai";
@@ -9,50 +9,52 @@ import { BsFillBellFill } from "react-icons/bs";
 import {
   Typography,
   Button,
-  Navbar,
   Collapse,
   IconButton,
   Badge,
   Avatar,
-} from "@material-tailwind/react";
+  AppBar,
+  Container,
+  Toolbar,
+  MenuItem,
+  Menu,
+  Tooltip,
+  Box,
+} from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 
+const pages = [
+  "Services",
+  "Team",
+  "Pricing",
+  "About Us",
+  "Privacy Policy",
+  "FAQS",
+  "Contact",
+];
+
+const settings = ["Profile", "Account", "Dashboard", "Logout"];
+
 const Header = () => {
-  const [openNav, setOpenNav] = useState(false);
+  const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
+  const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
 
-  useEffect(() => {
-    window.addEventListener(
-      "resize",
-      () => window.innerWidth >= 960 && setOpenNav(false)
-    );
-  }, []);
+  const handleOpenNavMenu = (event: MouseEvent<HTMLElement>) => {
+    setAnchorElNav(event.currentTarget);
+  };
+  const handleOpenUserMenu = (event: MouseEvent<HTMLElement>) => {
+    setAnchorElUser(event.currentTarget);
+  };
 
-  const navList = (
-    <ul className="flex items-center">
-      <Typography as="li">
-        <Link href="#">Services</Link>
-      </Typography>
-      <Typography as="li">
-        <Link href="#">Team</Link>
-      </Typography>
-      <Typography as="li">
-        <Link href="#">Pricing</Link>
-      </Typography>
-      <Typography as="li">
-        <Link href="#">About Us</Link>
-      </Typography>
-      <Typography as="li">
-        <Link href="#">Privacy Policy</Link>
-      </Typography>
-      <Typography as="li">
-        <Link href="#">FAQS</Link>
-      </Typography>
-      <Typography as="li">
-        <Link href="#">Contact</Link>
-      </Typography>
-    </ul>
-  );
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
+
+  const handleCloseUserMenu = () => {
+    setAnchorElUser(null);
+  };
+
   return (
     <>
       <div className="flex items-center justify-between bg-gray-200 px-[5%] py-1 dark:bg-slate-700">
@@ -77,59 +79,121 @@ const Header = () => {
           </Button>
         </div>
       </div>
-      <Navbar>
-        <div className="flex items-center justify-between">
-          <div className="h-[28px]">
-            <Image
-              src="/images/logo-light.png"
-              width="0"
-              height="0"
-              sizes="100vw"
-              alt=""
-              className="hidden w-full h-full object-contain dark:block"
-            />
-            <Image
-              src="/images/logo-dark.png"
-              width="0"
-              height="0"
-              sizes="100vw"
-              alt=""
-              className="w-full h-full object-contain dark:hidden"
-            />
-          </div>
-          <div className="hidden lg:block">{navList}</div>
-          <div className="flex items-center">
-            <IconButton
-              className="lg:hidden"
-              onClick={() => setOpenNav(!openNav)}
-              variant="text"
-            >
-              <FiMenu className="h-5 w-5" />
-            </IconButton>
-            <Badge overlap="circular" placement="top-end" content="5">
-              <IconButton>
-                <BsFillBellFill className="w-6 h-6" />
-              </IconButton>
-            </Badge>
-            <div className="w-12 h-12 rounded-full overflow-hidden">
-              <Image
-                src="/images/user/img-01.jpg"
-                width="0"
-                height="0"
-                sizes="100vw"
-                className="w-full h-full"
-                alt="user"
-              />
-            </div>
-          </div>
-        </div>
-        <Collapse open={openNav}>
-          {navList}
-          <Button variant="gradient" size="sm" fullWidth className="mb-2">
-            <span>Buy Now</span>
-          </Button>
-        </Collapse>
-      </Navbar>
+      <AppBar
+        position="sticky"
+        className="shadow-none bg-white dark:bg-slate-800"
+      >
+        <Container maxWidth="xl">
+          <Toolbar disableGutters>
+            <Box className="flex justify-between w-full items-center hover:cursor-pointer">
+              <Box className="h-[28px]">
+                <Image
+                  src="/images/logo-light.png"
+                  width="0"
+                  height="0"
+                  sizes="100vw"
+                  alt=""
+                  className="hidden w-full h-full object-contain dark:block"
+                />
+                <Image
+                  src="/images/logo-dark.png"
+                  width="0"
+                  height="0"
+                  sizes="100vw"
+                  alt=""
+                  className="w-full h-full object-contain dark:hidden"
+                />
+              </Box>
+              <Box className="hidden md:flex space-x-3">
+                {pages.map((page) => (
+                  <Button
+                    key={page}
+                    onClick={handleCloseNavMenu}
+                    className="text-black dark:text-white"
+                  >
+                    {page}
+                  </Button>
+                ))}
+              </Box>
+
+              <Box className="space-x-6">
+                <IconButton
+                  size="large"
+                  aria-label="account of current user"
+                  aria-controls="menu-appbar"
+                  aria-haspopup="true"
+                  onClick={handleOpenNavMenu}
+                  color="inherit"
+                  className="-mr-5 md:hidden"
+                >
+                  <FiMenu />
+                </IconButton>
+                <IconButton>
+                  <Badge badgeContent={5} color="primary">
+                    <BsFillBellFill className="text-black dark:text-white h-5 w-5 hover:cursor-pointer" />
+                  </Badge>
+                </IconButton>
+                <Tooltip title="Open settings">
+                  <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                    <Avatar
+                      alt="Remy Sharp"
+                      src="/static/images/avatar/2.jpg"
+                    />
+                  </IconButton>
+                </Tooltip>
+                <Menu
+                  sx={{ mt: "45px" }}
+                  id="menu-appbar"
+                  anchorEl={anchorElUser}
+                  anchorOrigin={{
+                    vertical: "top",
+                    horizontal: "right",
+                  }}
+                  keepMounted
+                  transformOrigin={{
+                    vertical: "top",
+                    horizontal: "right",
+                  }}
+                  open={Boolean(anchorElUser)}
+                  onClose={handleCloseUserMenu}
+                >
+                  {settings.map((setting) => (
+                    <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                      <Typography textAlign="center">{setting}</Typography>
+                    </MenuItem>
+                  ))}
+                </Menu>
+              </Box>
+            </Box>
+            <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorElNav}
+                anchorOrigin={{
+                  vertical: "bottom",
+                  horizontal: "left",
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "left",
+                }}
+                open={Boolean(anchorElNav)}
+                onClose={handleCloseNavMenu}
+                sx={{
+                  display: { xs: "block", md: "none" },
+                }}
+              >
+                {pages.map((page) => (
+                  <MenuItem key={page} onClick={handleCloseNavMenu}>
+                    <Typography textAlign="center">{page}</Typography>
+                  </MenuItem>
+                ))}
+              </Menu>
+            </Box>
+          </Toolbar>
+        </Container>
+      </AppBar>
     </>
   );
 };
