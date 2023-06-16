@@ -27,9 +27,9 @@ const theme = {
   components: {
     MuiButton: {
       styleOverrides: {
-        root: {
-          padding: "16px 28px",
-        },
+        // root: {
+        //   padding: "16px 28px",
+        // },
       },
     },
     MuiCssBaseline: {

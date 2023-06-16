@@ -1,7 +1,10 @@
+"use client";
 import "./globals.css";
 import { Inter } from "next/font/google";
 import Header from "./components/Header/Header";
-
+import { StyledEngineProvider } from "@mui/material";
+import { ThemeProvider, CssBaseline } from "@mui/material";
+import theme from "@/theme/theme";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,10 +21,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head></head>
-      <body className={inter.className}>
-        <Header />
-        {children}
-      </body>
+      <StyledEngineProvider injectFirst>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <body className={inter.className}>
+            <Header />
+            {children}
+          </body>
+        </ThemeProvider>
+      </StyledEngineProvider>
     </html>
   );
 }
