@@ -1,0 +1,61 @@
+[
+    {
+        "title": "Company",
+        "links": [
+        {
+            "title": "About Us",
+            "href": "/about"
+        },
+        {
+            "title": "Contact Us",
+            "href": "/contact"
+        },
+        {
+            "title": "Services",
+            "href": "/services"
+        },
+        {
+            "title": "Team",
+            "href": "/team"
+        },
+        {
+            "title": "Pricing",
+            "href": "/pricing"
+        }
+        ]
+    }, 
+    {
+        "title": "For Jobs",
+        "links": [
+            {
+                "title": "Browse Categories",
+                "href": "/categories"
+            },
+            {
+                "title": "Browse Jobs",
+                "href": "/jobs"
+            },
+            {
+                "title": "Bookmark Jobs",
+                "href": "/bookmark-jobs"
+            }
+        ]
+    },
+    {
+        "title": "Support",
+        "links":[
+            {
+                "title": "Help Center",
+                "href": "/help"
+            },
+            {
+                "title": "FAQ'S",
+                "href": "/faqs"
+            },
+            {
+                "title": "Privacy Policy",
+                "href": "/privacy-policy"
+            }
+        ]
+    }
+]
