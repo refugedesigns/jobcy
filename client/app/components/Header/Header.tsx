@@ -57,7 +57,7 @@ const Header = () => {
 
   return (
     <>
-      <div className="flex items-center justify-between bg-gray-200 px-[5%] py-1 dark:bg-slate-700">
+      <div className="hidden md:flex items-center justify-between bg-gray-200 px-[5%] py-1 dark:bg-slate-700">
         <div className="flex items-center space-x-4">
           <div className="flex items-center space-x-1">
             <IoLocation />
@@ -104,7 +104,7 @@ const Header = () => {
                   className="w-full h-full object-contain dark:hidden"
                 />
               </Box>
-              <Box className="hidden md:flex space-x-3">
+              <Box className="hidden lg:flex space-x-3">
                 {pages.map((page) => (
                   <Button
                     key={page}
@@ -115,8 +115,7 @@ const Header = () => {
                   </Button>
                 ))}
               </Box>
-
-              <Box className="space-x-6">
+              <Box className="space-x-6 flex">
                 <IconButton
                   size="large"
                   aria-label="account of current user"
@@ -124,7 +123,7 @@ const Header = () => {
                   aria-haspopup="true"
                   onClick={handleOpenNavMenu}
                   color="inherit"
-                  className="-mr-5 md:hidden"
+                  className="-mr-5 lg:hidden"
                 >
                   <FiMenu />
                 </IconButton>
@@ -133,37 +132,34 @@ const Header = () => {
                     <BsFillBellFill className="text-black dark:text-white h-5 w-5 hover:cursor-pointer" />
                   </Badge>
                 </IconButton>
-                <Tooltip title="Open settings">
-                  <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                    <Avatar
-                      alt="Remy Sharp"
-                      src="/static/images/avatar/2.jpg"
-                    />
-                  </IconButton>
-                </Tooltip>
-                <Menu
-                  sx={{ mt: "45px" }}
-                  id="menu-appbar"
-                  anchorEl={anchorElUser}
-                  anchorOrigin={{
-                    vertical: "top",
-                    horizontal: "right",
-                  }}
-                  keepMounted
-                  transformOrigin={{
-                    vertical: "top",
-                    horizontal: "right",
-                  }}
-                  open={Boolean(anchorElUser)}
-                  onClose={handleCloseUserMenu}
-                >
-                  {settings.map((setting) => (
-                    <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                      <Typography textAlign="center">{setting}</Typography>
-                    </MenuItem>
-                  ))}
-                </Menu>
+              <Tooltip title="Open settings" className="hidden sm:flex">
+                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                  <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                </IconButton>
+              </Tooltip>
               </Box>
+              <Menu
+                sx={{ mt: "45px" }}
+                id="menu-appbar"
+                anchorEl={anchorElUser}
+                anchorOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                open={Boolean(anchorElUser)}
+                onClose={handleCloseUserMenu}
+              >
+                {settings.map((setting) => (
+                  <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                    <Typography textAlign="center">{setting}</Typography>
+                  </MenuItem>
+                ))}
+              </Menu>
             </Box>
             <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
               <Menu
