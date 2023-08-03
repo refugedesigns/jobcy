@@ -27,7 +27,7 @@ const HeroSection = () => {
     const [isSearchable, setIsSearchable] = useState(true);
 
   return (
-    <Container className="bg-[/images/home/img-01.png] w-full mt-40">
+    <Container className="mt-40 sm:px-10 mb-20">
       <Typography variant="h2" className="text-white text-4xl text-center max-w-md mx-auto font-bold">
         Search Between More Than <span className="text-slate-400">10,000+</span>{" "}
         Open Jobs
@@ -41,7 +41,7 @@ const HeroSection = () => {
           id="company"
           placeholder="Job, Company name..."
           InputProps={{ startAdornment: <BiBriefcaseAlt2 /> }}
-          className="f"
+          className="bg-white rounded-md"
           fullWidth
         />
         <Select
