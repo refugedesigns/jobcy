@@ -35,17 +35,17 @@ const HeroSection = () => {
       <Typography variant="body2" className="py-4 text-center mx-auto w-full">
         Find jobs, create trackable resumes and enrich your applications
       </Typography>
-      <Box className="space-y-4 lg:flex">
+      <Box className="space-y-4 lg:flex lg:space-y-0">
         <TextField
           name="company"
           id="company"
           placeholder="Job, Company name..."
           InputProps={{ startAdornment: <BiBriefcaseAlt2 /> }}
-          className="bg-white rounded-md"
+          className="bg-white rounded-md lg:flex-1"
           fullWidth
         />
         <Select
-          className="basic-single"
+          className="basic-single lg:flex-1"
           classNamePrefix="select"
           defaultValue={"Option 1"}
           isClearable={isClearable}
@@ -69,7 +69,7 @@ const HeroSection = () => {
           }}
         />
         <Select
-          className="basic-single"
+          className="basic-single lg:flex-1"
           classNamePrefix="select"
           defaultValue={"Option 1"}
           isClearable={isClearable}
@@ -97,7 +97,7 @@ const HeroSection = () => {
           variant="contained"
           disableElevation
           size="large"
-          className="bg-primary-blue  dark:text-white w-full py-4"
+          className="bg-primary-blue  dark:text-white w-full lg:flex-1 py-4"
         >
           Find Job
         </Button>
