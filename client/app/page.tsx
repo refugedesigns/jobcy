@@ -11,7 +11,7 @@ export default function Home() {
         <HeroSection />
         <Box className="bg-white w-full h-48 absolute -bottom-28 overflow-hidden -skew-y-[2.5deg] lg:-skew-y-[4deg]" />
       </Box>
-      <Box className="z-20">
+      <Box className="z-20 w-full">
         <JobCategories />
       </Box>
     </main>

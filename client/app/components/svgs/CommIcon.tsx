@@ -10,7 +10,7 @@ const CommIcon = (props: Props) => {
         data-name="Layer 1"
         viewBox="0 0 24 24"
         width="1em"
-        className="h-[38px] w-[38px]"
+        className="h-[38px] w-[38px] fill-primary-blue"
       >
         <path
           className="opacity-30"
