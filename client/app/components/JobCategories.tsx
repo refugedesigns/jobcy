@@ -1,5 +1,6 @@
-import { Container, Grid } from '@mui/material'
 import React from 'react'
+import { Container, Grid } from '@mui/material'
+import { BsArrowRightShort } from "react-icons/bs";
 import SectionTitles from './SectionTitles'
 import CategoryIcon from './CategoryIcon'
 import TechIcon from './svgs/TechIcon'
@@ -10,10 +11,11 @@ import ConsIcon from './svgs/ConsIcon'
 import CommIcon from './svgs/CommIcon'
 import DesignIcon from './svgs/DesignIcon'
 import HumanIcon from './svgs/HumanIcon'
+import AnimatedButton from '@/ui/AnimatedButton'
 
 const JobCategories = () => {
   return (
-    <Container maxWidth="lg" className="my-10 ">
+    <Container maxWidth="lg" className="my-10">
       <SectionTitles
         title="Browse Jobs Categories"
         except="Post a job to tell us your project. We'll match you with the right freelancers for it"
@@ -76,6 +78,14 @@ const JobCategories = () => {
           </Grid>
         </Grid>
       </Grid>
+      <AnimatedButton
+        size="large"
+        disableElevation
+        className="bg-primary-blue capitalize flex justify-center mx-auto"
+        endIcon={<BsArrowRightShort />}
+        variant="contained"
+        buttonText="Browse All Categories"
+      />
     </Container>
   );
 }
