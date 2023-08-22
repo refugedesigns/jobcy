@@ -15,7 +15,7 @@ const CategoryIcons = (props: Props) => {
         {props.icon}
       </Box>
       <Typography variant='body2' className='font-bold text-lg text-slate-700'>{props.title}</Typography>
-      <Typography variant='body2' className="text-slate-400">{props.except} jobs</Typography>
+      <Typography  variant='body2' className="text-slate-400">{props.except} jobs</Typography>
     </motion.div>
   );
 }

@@ -48,7 +48,7 @@ const HeroSection = () => {
       </Typography>
       <Typography
         variant="body2"
-        className="py-4 text-center mx-auto w-full md:text-lg"
+        className="py-4 text-center mx-auto w-full md:text-lg text-white"
       >
         Find jobs, create trackable resumes and enrich your applications
       </Typography>
@@ -57,7 +57,9 @@ const HeroSection = () => {
           name="company"
           id="company"
           placeholder="Job, Company name..."
-          startAdornment={<BiBriefcaseAlt2 className="px-1 h-7 w-7 text-primary-blue" />}
+          startAdornment={
+            <BiBriefcaseAlt2 className="px-1 h-7 w-7 text-primary-blue dark:text-slate-600" />
+          }
           className="bg-white rounded-md lg:flex-1 lg:rounded-tr-none lg:rounded-br-none py-3 lg:py-0"
           fullWidth
           variant="outlined"
@@ -66,7 +68,7 @@ const HeroSection = () => {
         />
         <Divider orientation="vertical" className="hidden lg:block" />
         <Box className="relative lg:flex-1">
-          <CiLocationOn className="absolute z-10 top-1/2 transform -translate-y-1/2 h-[2.3rem] w-[2.3rem] px-2 text-primary-blue" />
+          <CiLocationOn className="absolute z-10 top-1/2 transform -translate-y-1/2 h-[2.3rem] w-[2.3rem] px-2 text-primary-blue dark:text-slate-600" />
           <Select
             className="basic-single lg:flex-1 lg:rounded-none"
             classNamePrefix="select"
@@ -83,8 +85,8 @@ const HeroSection = () => {
                 boxShadow: "none",
                 paddingLeft: 16,
                 "&:hover": {
-                  cursor: "pointer"
-                }
+                  cursor: "pointer",
+                },
               }),
               container: (base) => ({
                 ...base,
@@ -95,15 +97,15 @@ const HeroSection = () => {
                 borderRadius: 5,
                 backgroundColor: "white",
                 "&:hover": {
-                  cursor: "pointer"
-                }
+                  cursor: "pointer",
+                },
               }),
             }}
           />
         </Box>
         <Divider orientation="vertical" className="hidden lg:block" />
         <Box className="relative lg:flex-1 hover:cursor-pointer">
-          <AiOutlineBook className="absolute z-10 top-1/2 transform -translate-y-1/2 h-[2.2rem] w-[2.2rem] px-2 text-primary-blue" />
+          <AiOutlineBook className="absolute z-10 top-1/2 transform -translate-y-1/2 h-[2.2rem] w-[2.2rem] px-2 text-primary-blue dark:text-slate-600" />
           <Select
             className="basic-single lg:flex-1 lg:rounded-none"
             classNamePrefix="select"
@@ -120,8 +122,8 @@ const HeroSection = () => {
                 boxShadow: "none",
                 paddingLeft: 16,
                 "&:hover": {
-                  cursor: "pointer"
-                }
+                  cursor: "pointer",
+                },
               }),
               container: (base) => ({
                 ...base,
@@ -132,8 +134,8 @@ const HeroSection = () => {
                 borderRadius: 5,
                 backgroundColor: "white",
                 "&:hover": {
-                  cursor: "pointer"
-                }
+                  cursor: "pointer",
+                },
               }),
             }}
           />
@@ -148,15 +150,17 @@ const HeroSection = () => {
           Find Job
         </Button>
       </Box>
-      <Box className="flex justify-center w-full flex-wrap text-sm">
-        <Box className="flex justify-center">
-          <MdOutlineDiscount className="h-6 w-6" />
-          <Typography className="whitespace-nowrap">Trending Keywords:</Typography>
+      <Box className="flex justify-center items-center w-full flex-wrap text-sm">
+        <Box className="flex justify-center items-center">
+          <MdOutlineDiscount className="h-6 w-6 text-orange-200" />
+          <Typography className="whitespace-nowrap text-white">
+            Trending Keywords:
+          </Typography>
         </Box>
           {["Design", "Development", "Manager", "Senior"].map(
             (keyword, index) => (
-              <Link className="mx-2" href="#" key={index}>
-                {keyword}, 
+              <Link className="mx-2 text-gray-200" href="#" key={index}>
+                {keyword},
               </Link>
             )
           )}

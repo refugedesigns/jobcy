@@ -3,6 +3,7 @@
 import { Box } from "@mui/material";
 import HeroSection from "./components/HeroSection";
 import JobCategories from "./components/JobCategories";
+import ShortlistedJobs from "./components/ShortlistedJobs";
 
 export default function Home() {
   return (
@@ -13,6 +14,9 @@ export default function Home() {
       </Box>
       <Box className="z-20 w-full">
         <JobCategories />
+      </Box>
+      <Box className="bg-gray-100 w-full bg-opacity-30 my-10 py-20">
+        <ShortlistedJobs />
       </Box>
     </main>
   );
