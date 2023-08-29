@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import { Container, Tabs, useMediaQuery } from "@mui/material";
+import { Container, Tabs, useMediaQuery, Box } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import SectionTitles from "./SectionTitles";
 import CustomTab from "@/ui/CustomTab";
 import CustomTabPanel from "@/ui/CustomTabPanel";
+import jobs from "@/mocks/job-data.json";
+import SingleJobCard from "./SingleJobCard";
 
 
 function a11yProps(index: number): { [key: string]: string } {
@@ -38,7 +40,9 @@ const ShortlistedJobs = () => {
           },
         }}
         orientation={matches ? "horizontal" : "vertical"}
-        className={`shadow-md ${!matches ? "w-full" : "w-min"} mx-auto rounded-lg p-2 bg-white`}
+        className={`shadow-md ${
+          !matches ? "w-full" : "w-min"
+        } mx-auto rounded-lg p-2 bg-white`}
         centered
       >
         <CustomTab label="Recent Jobs" {...a11yProps(0)} />
@@ -48,7 +52,21 @@ const ShortlistedJobs = () => {
         <CustomTab label="Full Time" {...a11yProps(4)} />
       </Tabs>
       <CustomTabPanel value={value} index={0}>
-        <span className="text-black">Content 1</span>
+        <Box className="space-y-8">
+          {jobs.map((job, index) => (
+            <SingleJobCard
+              key={index}
+              logoImage={job.logoImage}
+              jobTitle={job.jobTitle}
+              company={job.company}
+              companyInitials={job.companyInitials}
+              location={job.location}
+              salaryRange={job.salaryRange}
+              experience={job.experience}
+              tags={job.tags}
+            />
+          ))}
+        </Box>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
         Content 2
