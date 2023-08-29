@@ -5,9 +5,13 @@ const theme = {
     primary: {
       //   light: "#FCECEB",
       main: "#766df4",
+      green: "#00c853",
     },
     secondary: {
-      main: "#faf9ff",
+      main: "#00c853",
+    },
+    chip: {
+      main: "#00c853",
     },
   },
   breakpoints: {

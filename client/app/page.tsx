@@ -15,7 +15,7 @@ export default function Home() {
       <Box className="z-20 w-full">
         <JobCategories />
       </Box>
-      <Box className="bg-gray-100 w-full bg-opacity-30 my-10 py-20">
+      <Box className="bg-gray-100 w-full bg-opacity-20 my-10 py-20">
         <ShortlistedJobs />
       </Box>
     </main>
