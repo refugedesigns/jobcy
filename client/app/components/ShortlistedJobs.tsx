@@ -4,7 +4,7 @@ import { useTheme } from "@mui/material/styles";
 import SectionTitles from "./SectionTitles";
 import CustomTab from "@/ui/CustomTab";
 import CustomTabPanel from "@/ui/CustomTabPanel";
-import jobs from "@/mocks/job-data.json";
+import { featuredJobs, freelanceJobs, recentJobs, fulltimeJobs, parttimeJobs } from "@/mocks/job-cat";
 import SingleJobCard from "./SingleJobCard";
 
 
@@ -19,6 +19,12 @@ const ShortlistedJobs = () => {
   const [value, setValue] = useState<number>(0);
   const theme = useTheme()
   const matches = useMediaQuery(theme.breakpoints.up("md"))
+
+  const featured = featuredJobs();
+  const recent = recentJobs();
+  const fulltime = fulltimeJobs();
+  const parttime = parttimeJobs();
+  const freelance = freelanceJobs();
 
   const handleChangeTab = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
@@ -53,7 +59,7 @@ const ShortlistedJobs = () => {
       </Tabs>
       <CustomTabPanel value={value} index={0}>
         <Box className="space-y-8">
-          {jobs.map((job, index) => (
+          {recent.map((job: Job, index: number) => (
             <SingleJobCard
               key={index}
               logoImage={job.logoImage}
@@ -69,16 +75,72 @@ const ShortlistedJobs = () => {
         </Box>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
-        Content 2
+        <Box className="space-y-8">
+          {featured.map((job: Job, index: number) => (
+            <SingleJobCard
+              key={index}
+              logoImage={job.logoImage}
+              jobTitle={job.jobTitle}
+              company={job.company}
+              companyInitials={job.companyInitials}
+              location={job.location}
+              salaryRange={job.salaryRange}
+              experience={job.experience}
+              tags={job.tags}
+            />
+          ))}
+        </Box>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={2}>
-        Content 3
+        <Box className="space-y-8">
+          {freelance.map((job: Job, index: number) => (
+            <SingleJobCard
+              key={index}
+              logoImage={job.logoImage}
+              jobTitle={job.jobTitle}
+              company={job.company}
+              companyInitials={job.companyInitials}
+              location={job.location}
+              salaryRange={job.salaryRange}
+              experience={job.experience}
+              tags={job.tags}
+            />
+          ))}
+        </Box>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={3}>
-        Content 4
+        <Box className="space-y-8">
+          {fulltime.map((job: Job, index: number) => (
+            <SingleJobCard
+              key={index}
+              logoImage={job.logoImage}
+              jobTitle={job.jobTitle}
+              company={job.company}
+              companyInitials={job.companyInitials}
+              location={job.location}
+              salaryRange={job.salaryRange}
+              experience={job.experience}
+              tags={job.tags}
+            />
+          ))}
+        </Box>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={4}>
-        Content 5
+        <Box className="space-y-8">
+          {parttime.map((job: Job, index: number) => (
+            <SingleJobCard
+              key={index}
+              logoImage={job.logoImage}
+              jobTitle={job.jobTitle}
+              company={job.company}
+              companyInitials={job.companyInitials}
+              location={job.location}
+              salaryRange={job.salaryRange}
+              experience={job.experience}
+              tags={job.tags}
+            />
+          ))}
+        </Box>
       </CustomTabPanel>
     </Container>
   );
