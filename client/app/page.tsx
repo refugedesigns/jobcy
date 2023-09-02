@@ -4,6 +4,8 @@ import { Box } from "@mui/material";
 import HeroSection from "./components/HeroSection";
 import JobCategories from "./components/JobCategories";
 import ShortlistedJobs from "./components/ShortlistedJobs";
+import AnimatedButton from "@/ui/AnimatedButton";
+import { BsArrowRightShort } from "react-icons/bs";
 
 export default function Home() {
   return (
@@ -15,8 +17,9 @@ export default function Home() {
       <Box className="z-20 w-full">
         <JobCategories />
       </Box>
-      <Box className="bg-gray-100 w-full bg-opacity-20 my-10 py-20">
+      <Box className="bg-gray-100 w-full bg-opacity-50 my-10 py-20">
         <ShortlistedJobs />
+        <AnimatedButton buttonText="View All Jobs" variant="contained" className="mx-auto flex capitalize bg-primary-blue" disableElevation endIcon={<BsArrowRightShort />}/>
       </Box>
     </main>
   );

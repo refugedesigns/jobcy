@@ -15,6 +15,7 @@ import {
 import { useTheme } from "@mui/material/styles";
 import { AiFillStar } from "react-icons/ai";
 import { motion } from "framer-motion";
+import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 
 import Image from "next/image";
 
@@ -55,11 +56,11 @@ const SingleJobCard = (props: Props) => {
         <Box className="h-20 w-32 bg-primary-blue flex justify-center items-end absolute z-10 -rotate-45 -left-16 -top-10 pb-2">
           <AiFillStar className="text-white h-5 w-5 " />
         </Box>
-        <Grid item container className="lg:items-center lg:px-16 py-5">
-          <Grid item xs={12} lg={2} className="relative ">
-            <Box className="relative w-20 h-20 rounded-md overflow-hidden">
+        <Grid item container className="lg:items-center px-4 lg:px-16 py-5 space-y-4 lg:space-y-0">
+          <Grid item xs={12} md={2} className="flex justify-center lg:block">
+            <Box className="relative w-16 h-16 rounded-md overflow-hidden">
               <Typography className="absolute text-white top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                {companyInitials}
+                {companyInitials} 
               </Typography>
               <Image
                 src={logoImage}
@@ -71,23 +72,23 @@ const SingleJobCard = (props: Props) => {
               />
             </Box>
           </Grid>
-          <Grid item xs={12} lg={4}>
+          <Grid item xs={12} md={4} className="space-y-4 lg:space-y-0">
             <Typography className="text-lg" variant="h6">
               {jobTitle}
             </Typography>
             <Typography variant="body2">{company}</Typography>
           </Grid>
-          <Grid item xs={12} lg={2} justifySelf={"end"}>
+          <Grid item xs={12} md={2} justifySelf={"end"}>
             {/* <GVIcon /> */}
             <Typography variant="body2">{location}</Typography>
           </Grid>
-          <Grid item xs={12} lg={2}>
+          <Grid item xs={12} md={2}>
             <Typography variant="body2">{salaryRange}</Typography>
           </Grid>
           <Grid
             item
             xs={12}
-            lg={2}
+            md={2}
             className="flex flex-wrap space-x-2 lg:w-min"
           >
             {tags.map((tag, index) => {
@@ -143,15 +144,15 @@ const SingleJobCard = (props: Props) => {
         <Grid
           item
           container
-          className="flex justify-between items-center bg-gray-100 px-16 py-2"
+          className="lg:flex lg:justify-between lg:items-center bg-gray-100 lg:px-16 py-2 px-4"
         >
-          <Grid item xs={6}>
-            <Typography variant="body2">
-              Experience: {experience} years
+          <Grid item xs={12} md={6}>
+            <Typography className="whitespace-nowrap" variant="body2">
+              Experience: {experience}
             </Typography>
           </Grid>
-          <Grid item xs={6} className="flex justify-end ">
-            <Button variant="text">Apply Now</Button>
+          <Grid item xs={12} md={6} className="lg:flex lg:justify-end ">
+            <Button endIcon={<MdKeyboardDoubleArrowRight />} className="whitespace-nowrap capitalize text-slate-500 text-md p-0 font-normal tracking-wide" variant="text">Apply Now</Button>
           </Grid>
         </Grid>
       </Grid>
