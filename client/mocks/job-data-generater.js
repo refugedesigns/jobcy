@@ -5,6 +5,11 @@ const _ = require("lodash")
 
 tags = ["Part Time", "Full Time", "Private", "Urgent", "Freelancer"]
 
+/**
+ * Generates a random job object with various properties.
+ *
+ * @return {Object} The randomly generated job object.
+ */
 function createRandomJob() {
     let newTags = _.sampleSize(tags, faker.number.int({min: 1, max: 3}))
     const imageWithText = faker.image.dataUri({
